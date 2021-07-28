@@ -1,0 +1,37 @@
+Model Metrics
+++++++++++++++++++++++++++++++++++++++++++++++++++
+Prediction of West Nile Virus in Chicago
+Blaine Murphy
+7/27/2021
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The final model for prediction of the WNV cases in Chicago is the XGboost model pickled called:
+	'XGBoost_final_classifier.pkl'
+
+	
+The final features (13) for the model are as follows
+	Depart,
+	Heat,
+	PrecipTotal_lag10,
+	PrecipTotal_lag14,
+	PrecipTotal_lag2,
+	PrecipTotal_lag3,
+	PrecipTotal_lag5,
+	PrecipTotal_lag6,
+	WindDirection,
+	WindSpeed_lag1,
+	WindSpeed_lag3,
+	WindSpeed_lag5,
+	WnvPerc_weekly
+
+The classifier has 2 parameters passed to it:
+	learning_rate = 0.1
+	scale_pos_weight = 10.987  (In the training set (number of negative cases) / (number of positive cases)
+
+When the model was trained on 80% of the data and applied to the 20% hold out set 
+the performance metrics were as follows:
+		Train	/	Test
+     ROC AUC:   0.88	/	0.84
+      Recall:   0.88	/	0.83
+   Precision:	0.24	/	0.23
+
